@@ -16,15 +16,10 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '18'
-
-    - name: Install Android SDK
-      run: |
-        wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
-        unzip commandlinetools-linux-7302050_latest.zip -d cmdline-tools
-        export ANDROID_HOME=$PWD/cmdline-tools
-        export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
-        echo 'export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin' >> $GITHUB_ENV
-
+      
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+          
     - name: Create emulator
       run: |
           ls $ANDROID_HOME/cmdline-tools
