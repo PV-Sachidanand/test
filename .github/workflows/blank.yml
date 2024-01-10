@@ -32,7 +32,7 @@ jobs:
          ls -R $ANDROID_HOME/cmdline-tools
     - name: Launch emulator
       run: |
-        cd $HOME/Android/Sdk/emulator
+        cd $HOME/android/sdk/emulator
         ./emulator -avd Pixel_3a -no-audio -no-window -accel auto -gpu swiftshader
         ./emulator -avd Pixel_6a -no-audio -no-window -accel auto -gpu swiftshader
 
