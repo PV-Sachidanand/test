@@ -23,8 +23,8 @@ jobs:
     - name: Create emulator
       run: |
           ls $ANDROID_HOME/cmdline-tools
-          $.ANDROID_HOME/cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.2"
-          $.ANDROID_HOME/cmdline-tools/bin/avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86"
+          $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.2"
+          $ANDROID_HOME/cmdline-tools/bin/avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86"
     - name: Debug cmdline-tools contents
       run: |
          ls -R $ANDROID_HOME/cmdline-tools
