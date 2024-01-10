@@ -23,7 +23,7 @@ jobs:
     - name: Create emulator
       run: |
             sdkmanager tools platform-tools
-            $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.2"
+            $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-30" "system-images;android-30;google_apis;x86" "build-tools;30.0.2"
             echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n Pixel_3a -k "system-images;android-30;google_apis;x86" --force
             echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n Pixel_6a -k "system-images;android-30;google_apis;x86" --force
 
