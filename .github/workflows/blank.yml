@@ -23,7 +23,6 @@ jobs:
         unzip commandlinetools-linux-7302050_latest.zip -d cmdline-tools
         export ANDROID_HOME=$PWD/cmdline-tools
         export PATH=$PATH:$PWD/cmdline-tools/bin
-        sdkmanager --update
 
     - name: Create emulator
       run: |
