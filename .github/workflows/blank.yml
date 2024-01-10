@@ -22,12 +22,13 @@ jobs:
         wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
         unzip commandlinetools-linux-7302050_latest.zip -d cmdline-tools
         export ANDROID_HOME=$PWD/cmdline-tools
-        export PATH=$PATH:$PWD/cmdline-tools/bin
+        export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
+        echo 'export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin' >> $GITHUB_ENV
 
     - name: Create emulator
       run: |
-        sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.2"
-        avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86"
+        $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.2"
+        $ANDROID_HOME/cmdline-tools/bin/avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86"
 
     - name: Launch emulator
       run: |
@@ -40,4 +41,3 @@ jobs:
     - name: Run Test Case
       run: |
         # Add your test execution command here
-
